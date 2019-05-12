@@ -1,0 +1,50 @@
+Front end
+---------------------------
+
+
+
+
+
+
+
+Backend
+----------------------------
+dashboard:
+    stats:
+        This month earning,
+        best selling product,
+        less qty products,
+
+    Product:
+        product list,
+        add product,
+        Add product categories
+
+    Settings:
+        Store name,
+        theme selection,
+
+    User Manegement:
+        user list,
+        add user (assign user role)
+
+
+
+User Role
+----------------------------
+
+
+
+
+
+
+================================
+Mongo detail:
+Db: ngstorefront
+Database username: deep_mongo
+Database pass: deep_mongo2019
+
+
+Package use:
+--------------------
+mongoose
