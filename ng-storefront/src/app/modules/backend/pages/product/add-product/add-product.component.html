@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Add product</h2>
+<form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm.value)">
+  <mat-dialog-content class="mat-typography">
+    {{addProductForm.value | json}}
+    <div class="add-product-container">
+      <mat-form-field>
+        <input matInput placeholder="name" name="name" [(ngModel)]="model.name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="description" name="description" [(ngModel)]="model.description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="number" matInput placeholder="price" name="price" [(ngModel)]="model.price" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="number" matInput placeholder="quantity" name="quantity" [(ngModel)]="model.quantity" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Purchase qty at a time" name="limit" [(ngModel)]="model.limit">
+          <mat-option value="unlimited">unlimited</mat-option>
+          <mat-option value="one">one</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button [disabled]="!addProductForm.valid">Save</button>
+  </mat-dialog-actions>
+
+</form>

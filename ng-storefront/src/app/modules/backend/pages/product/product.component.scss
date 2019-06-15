@@ -1,0 +1,25 @@
+.product-table-container{
+  max-height: calc(100vh - 110px);
+  min-height: 353px;
+  overflow: auto;
+  margin-top: 15px;
+}
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}
+.mat-header-row th{
+  font-weight: bold;
+  color: #212121;
+}
+.mat-column-name {
+  width: 30%;
+}
+.action-item{
+  width: 80px;
+  text-align: center;
+}
+.mat-column-update, .mat-column-details, .mat-column-delete{
+  text-align: center;
+}

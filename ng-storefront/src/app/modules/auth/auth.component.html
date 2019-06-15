@@ -1,0 +1,12 @@
+<div class="auth-outer" fxLayout="column" fxLayoutAlign="center center">
+  <img src="assets/images/logo.svg" alt="logo" width="70">
+  <router-outlet></router-outlet>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-10">
+    <a [routerLink]="['/']">
+      <i class="material-icons vAlign-m rotate-180">arrow_right_alt</i>
+      Back to {{title}}</a>
+  </div>
+</div>
+<!-- Ref -->
+<!-- https://codepen.io/zavoloklom/pen/Khbxm -->
+<!-- https://dzone.com/articles/angular-5-material-design-login-application -->

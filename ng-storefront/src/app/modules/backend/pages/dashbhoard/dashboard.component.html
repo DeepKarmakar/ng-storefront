@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-title>Last 6 month's Income</mat-card-title>
+  <div class="flex">
+    <div class="flex-item">
+      <div style="display: block;">
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
+          style="display: block; width: 1047px; height: 300px;" [options]="lineChartOptions" [colors]="lineChartColors"
+          [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<mat-divider></mat-divider>
+<div fxLayout="row" fxLayoutAlign="start start" fxlayoutgap="10px grid">
+  <mat-card fxFlex="70%" class="child-mb-15">
+    <mat-card-title>Top 5 Product of this month</mat-card-title>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="space-between none">
+        <span>product 1</span>
+        <span>80%</span>
+      </div>
+      <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
+    </div>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="space-between none">
+        <span>product 2</span>
+        <span>40%</span>
+      </div>
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </div>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="space-between none">
+        <span>product 3</span>
+        <span>30%</span>
+      </div>
+      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+    </div>
+  </mat-card>
+  <mat-card fxFlex="30%">
+    <mat-card-title>Low stock Products</mat-card-title>
+    <div class="child-mb-15">
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <span>Item</span><span>5</span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <span>Item</span><span>7</span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <span>Item</span><span>8</span>
+      </div>
+    </div>
+  </mat-card>
+</div>

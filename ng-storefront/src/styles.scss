@@ -1,9 +1,50 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-
+*{
+  margin: 0;
+  padding: 0;
+}
+table{
+  width: 100%;
+}
+.mt-10{
+  margin-top: 10px;
+}
+.vAlign-m{
+  vertical-align: middle;
+}
+.rotate-180{
+  transform: rotate(180deg);
+}
+.mat-nav-list a.active, a.ctive{
+  color: #3f51b5;
+}
 // meterial
 .example-fill-remaining-space {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
+}
+[mat-card-avatar] {
+  background-image: url(assets/images/shiba1.jpg);
+  background-size: cover;
+}
+.example-container{
+  height: 100vh;
+}
+.child-mb-15 > div{
+  margin-bottom: 10px;
+}
+body{
+  .mat-card-header-text {
+    margin: 0;
+  }
+  .mat-card>.mat-card-actions:last-child {
+    margin: 0;
+  }
+}
+.auth-outer{
+  img{
+    margin-bottom: 15px;
+  }
 }

@@ -1,1 +1,53 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sideNav class="example-sidenav" mode="side" opened>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>John Smith</mat-card-title>
+        <mat-card-subtitle>john.smith@gmail.com</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine [routerLink]="['/dashboard']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+        <button mat-icon-button>
+          <mat-icon>dashboard</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine [routerLink]="['/dashboard/product']" routerLinkActive="active">Product</a>
+        <button mat-icon-button>
+          <mat-icon>store</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine [routerLink]="['/settings']" routerLinkActive="active">settings</a>
+        <button mat-icon-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <div fxLayout="row" fxLayoutAlign="space-between none">
+      <!-- local stoirage implementation -->
+      <button type="button" mat-button (click)="sideNav.toggle()">
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+
+      <button mat-button [routerLink]="['/']">
+        <mat-icon>Home</mat-icon>
+      </button>
+
+      <mat-icon matBadge="15" matBadgeColor="warn">notification_important</mat-icon>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div style="padding: 15px">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</mat-sidenav-container>
