@@ -1,12 +1,8 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="35px">
-  <mat-card class="example-card" fxflex="25">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
+<!-- <div fxLayout="row wrap" flexLayoutAlign="space-around" fxLayoutGap="30px">
+  <mat-card class="example-card" fxFlex="calc(20% - 30px)" *ngFor="let product of products">
     <img mat-card-image src="assets/images/overflow.png" alt="Photo of a Shiba Inu">
     <mat-card-content>
+      <h2>{{product.name}}</h2>
       <p>
         The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
         A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
@@ -18,61 +14,84 @@
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>
-  <mat-card class="example-card" fxflex="25">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/overflow.png" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card" fxflex="25">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/overflow.png" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card" fxflex="25">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/overflow.png" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+</div> -->
+<div class="comeBack_up" *ngIf="(cartItems | json) != ({} | json)">cart</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+    </ng-container>
+
+    <!-- image Column -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> Image </th>
+      <td mat-cell *matCellDef="let product">
+        <img src="assets/images/product-thumb.png" alt="">
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+    </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> description </th>
+      <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+    </ng-container>
+
+    <!-- price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> price </th>
+      <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+    </ng-container>
+
+    <!-- stock Column -->
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef> stock </th>
+      <td mat-cell *matCellDef="let product">
+        <p *ngIf="product.stock > 10" style="color: green"> In Stock </p>
+        <p *ngIf="product.stock <= 10 && product.stock > 0" style="color: #da6f01">Some left</p>
+        <p *ngIf="product.stock == 0" style="color: red">Out of stock</p>
+      </td>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> action </th>
+      <td mat-cell *matCellDef="let product">
+        <!-- <mat-button-toggle-group #group="matButtonToggleGroup" *ngIf="!group.value">
+          <mat-button-toggle value="0" type="button" mat-flat-button color="primary">Add +</mat-button-toggle>
+        </mat-button-toggle-group> -->
+        <button type="button" mat-flat-button color="primary" [hidden]="hideActionBtn[product.id]"
+          (click)="hideActionBtn[product.id] = !hideActionBtn[product.id]; addProduct(product.id, product.name, product.price)">Add
+          +</button>
+        <div [hidden]="!hideActionBtn[product.id]">
+          <button mat-icon-button (click)="decrProductQty(product.id)">
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+          <!-- <mat-form-field class="add-product-inp">
+            <input matInput type="number" value="1" min="1" max="100" name="rateInput"
+              pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?" #productQty>
+          </mat-form-field> -->
+          <span *ngIf="cartItems[product.id]" style="font-size: 20px;">
+            {{cartItems[product.id].qty}}
+          </span>
+          <button mat-icon-button (click)="incrProductQty(product.id)">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

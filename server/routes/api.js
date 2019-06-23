@@ -67,26 +67,146 @@ router.post('/login', (req, res) => {
 
 router.get('/products', (req, res) => {
     let products = [
-        { id: 1, name: 'Hydrogen vHydrogen Hydrogen', price: 1.0079, stock: 'H' },
-        { id: 2, name: 'Helium', price: 4.0026, stock: 'He' },
-        { id: 3, name: 'Lithium', price: 6.941, stock: 'Li' },
-        { id: 4, name: 'Beryllium', price: 9.0122, stock: 'Be' },
-        { id: 5, name: 'Boron', price: 10.811, stock: 'B' },
-        { id: 6, name: 'Carbon', price: 12.0107, stock: 'C' },
-        { id: 7, name: 'Nitrogen', price: 14.0067, stock: 'N' },
-        { id: 8, name: 'Oxygen', price: 15.9994, stock: 'O' },
-        { id: 9, name: 'Fluorine', price: 18.9984, stock: 'F' },
-        { id: 10, name: 'Neon', price: 20.1797, stock: 'Ne' },
-        { id: 11, name: 'Sodium', price: 22.9897, stock: 'Na' },
-        { id: 12, name: 'Magnesium', price: 24.305, stock: 'Mg' },
-        { id: 13, name: 'Aluminum', price: 26.9815, stock: 'Al' },
-        { id: 14, name: 'Silicon', price: 28.0855, stock: 'Si' },
-        { id: 15, name: 'Phosphorus', price: 30.9738, stock: 'P' },
-        { id: 16, name: 'Sulfur', price: 32.065, stock: 'S' },
-        { id: 17, name: 'Chlorine', price: 35.453, stock: 'Cl' },
-        { id: 18, name: 'Argon', price: 39.948, stock: 'Ar' },
-        { id: 19, name: 'Potassium', price: 39.0983, stock: 'K' },
-        { id: 20, name: 'Calcium', price: 40.078, stock: 'Ca' },
+        {
+            id: 1,
+            name: 'Hydrogen vHydrogen Hydrogen',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 100
+        },
+        {
+            id: 2,
+            name: 'Helium',
+            description: 'lorem ipsum dolar',
+            price: 10,
+            stock: 10
+        },
+        {
+            id: 3,
+            name: 'Lithium',
+            description: 'lorem ipsum dolar',
+            price: 30,
+            stock: 140
+        },
+        {
+            id: 4,
+            name: 'Beryllium',
+            description: 'lorem ipsum dolar',
+            price: 20,
+            stock: 120
+        },
+        {
+            id: 5,
+            name: 'Boron',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 0
+        },
+        {
+            id: 6,
+            name: 'Carbon',
+            description: 'lorem ipsum dolar',
+            price: 400,
+            stock: 20
+        },
+        {
+            id: 7,
+            name: 'Nitrogen',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 140
+        },
+        {
+            id: 8,
+            name: 'Oxygen',
+            description: 'lorem ipsum dolar',
+            price: 50,
+            stock: 170
+        },
+        {
+            id: 9,
+            name: 'Fluorine',
+            description: 'lorem ipsum dolar',
+            price: 14,
+            stock: 144
+        },
+        {
+            id: 10,
+            name: 'Neon',
+            description: 'lorem ipsum dolar',
+            price: 70,
+            stock: 130
+        },
+        {
+            id: 11,
+            name: 'Sodium',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 140
+        },
+        {
+            id: 12,
+            name: 'Magnesium',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 140
+        },
+        {
+            id: 13,
+            name: 'Aluminum',
+            description: 'lorem ipsum dolar',
+            price: 110,
+            stock: 110
+        },
+        {
+            id: 14,
+            name: 'Silicon',
+            description: 'lorem ipsum dolar',
+            price: 70,
+            stock: 240
+        },
+        {
+            id: 15,
+            name: 'Phosphorus',
+            description: 'lorem ipsum dolar',
+            price: 75,
+            stock: 140
+        },
+        {
+            id: 16,
+            name: 'Sulfur',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 140
+        },
+        {
+            id: 17,
+            name: 'Chlorine',
+            description: 'lorem ipsum dolar',
+            price: 40,
+            stock: 140
+        },
+        {
+            id: 18,
+            name: 'Argon',
+            description: 'lorem ipsum dolar',
+            price: 33,
+            stock: 110
+        },
+        {
+            id: 19,
+            name: 'Potassium',
+            description: 'lorem ipsum dolar',
+            price: 80,
+            stock: 130
+        },
+        {
+            id: 20,
+            name: 'Calcium',
+            description: 'lorem ipsum dolar',
+            price: 400,
+            stock: 140
+        },
     ]
     res.json(products);
 })

@@ -49,7 +49,12 @@ import { TokenInterceptorService } from './core/services/token-interceptor.servi
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    // {
+    // 	provide: HTTP_INTERCEPTORS,
+    // 	useClass: ResponseInterceptor,
+    // 	multi: true
+    // }
   ],
   bootstrap: [AppComponent],
   entryComponents: [

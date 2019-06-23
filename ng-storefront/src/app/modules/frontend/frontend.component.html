@@ -14,6 +14,30 @@
     <a mat-button [routerLink]="['/dashboard']">
       <mat-icon>dashboard</mat-icon>
     </a>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="cart-detail">
+      <mat-list>
+        <div *ngFor="let cartProduct of cartProducts">
+          <mat-list-item>
+            <div color="primary">{{cartProduct.name}}</div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-6">
+              <span>{{cartProduct.qty}} x {{cartProduct.price}}</span>
+              <span>{{cartProduct.qty * cartProduct.price}}</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </div>
+        <mat-list-item>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <span>SUB TOTAL</span>
+            <span>5200</span>
+          </div>
+        </mat-list-item>
+        <button mat-raised-button color="primary" class="proceed-btn">Proceed</button>
+      </mat-list>
+    </mat-menu>
     <!--
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
