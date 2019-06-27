@@ -23,6 +23,7 @@ dashboard:
     Settings:
         Store name,
         theme selection,
+        currency set
 
     User Manegement:
         user list,

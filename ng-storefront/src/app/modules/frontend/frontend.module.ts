@@ -5,6 +5,7 @@ import { FrontendComponent } from './frontend.component';
 import { RouterModule } from '@angular/router';
 import { MeterialModule } from '../../meterial.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FrontendComponent],
@@ -12,7 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     RouterModule,
     MeterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   // exports: [
   //   MeterialModule

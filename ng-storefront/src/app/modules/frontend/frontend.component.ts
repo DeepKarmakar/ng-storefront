@@ -11,6 +11,7 @@ import { CartDataService } from '../../core/services/cart-data.service';
 export class FrontendComponent implements OnInit {
 
   cartProducts: any;
+  subtotal;
 
   constructor(public _authService: AuthService, private _route: Router, private cartService: CartDataService) { }
 
@@ -21,6 +22,15 @@ export class FrontendComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token');
     this._route.navigate(['/login'])
+  }
+  getSubtotal() {
+    this.subtotal = this.cartProducts.map(product => product.qty * product.price).reduce((prev, next) => prev + next);
+    return this.subtotal;
+  }
+
+  proceedTocheckout() {
+    console.log(this.subtotal);
+
   }
 
 

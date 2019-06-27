@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
 
   hideActionBtn;
 
+  sampleForm = {};
+
   constructor(private _productService: ProductService, private _cartService: CartDataService) { }
 
 
@@ -64,6 +66,7 @@ export class HomeComponent implements OnInit {
     if (this.cartItems[productId].qty === 1) {
       this.hideActionBtn[productId] = !this.hideActionBtn[productId];
       delete this.cartItems[productId];
+      this._cartService.updateCart(this.cartItems);
     } else {
       this.cartItems[productId].qty -= 1;
     }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatBadgeModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -66,7 +66,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatBadgeModule
   ],
   exports: [
     MatCheckboxModule,
@@ -99,7 +100,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatBadgeModule
   ]
 
 })

@@ -15,10 +15,11 @@
       <mat-icon>dashboard</mat-icon>
     </a>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-      <mat-icon>shopping_cart</mat-icon>
+      <mat-icon matBadge="{{cartProducts.length > 0 ? cartProducts.length : '0'}}" matBadgeColor="warn">shopping_cart
+      </mat-icon>
     </button>
     <mat-menu #menu="matMenu" class="cart-detail">
-      <mat-list>
+      <mat-list *ngIf="cartProducts.length > 0">
         <div *ngFor="let cartProduct of cartProducts">
           <mat-list-item>
             <div color="primary">{{cartProduct.name}}</div>
@@ -31,12 +32,13 @@
         </div>
         <mat-list-item>
           <div fxLayout="row" fxLayoutAlign="space-between center">
-            <span>SUB TOTAL</span>
-            <span>5200</span>
+            <span style="margin-right: 30px;">SUB TOTAL</span>
+            <span>{{getSubtotal()}}</span>
           </div>
         </mat-list-item>
-        <button mat-raised-button color="primary" class="proceed-btn">Proceed</button>
+        <button mat-raised-button color="primary" class="proceed-btn" (click)="proceedTocheckout()">Proceed</button>
       </mat-list>
+      <p *ngIf="cartProducts.length == 0" style="padding: 15px">Your cart is empty</p>
     </mat-menu>
     <!--
     <button mat-icon-button [matMenuTriggerFor]="menu">
