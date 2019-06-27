@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ProductService } from '../../../../core/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { CartDataService } from '../../../../core/services/cart-data.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   sampleForm = {};
 
-  constructor(private _productService: ProductService, private _cartService: CartDataService) { }
+  constructor(private _productService: ProductService, private _cartService: CartDataService, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
@@ -58,8 +59,14 @@ export class HomeComponent implements OnInit {
 
   }
 
-  incrProductQty(productId) {
-    this.cartItems[productId].qty += 1;
+  incrProductQty(productId, stock) {
+    if (this.cartItems[productId].qty < stock) {
+      this.cartItems[productId].qty += 1;
+    } else {
+      this._snackBar.open('No more stock left', 'close', {
+        duration: 2000,
+      });
+    }
   }
 
   decrProductQty(productId) {
@@ -80,7 +87,7 @@ let products = [
     name: 'Hydrogen vHydrogen Hydrogen',
     description: 'lorem ipsum dolar',
     price: 40,
-    stock: 100
+    stock: 12
   },
   {
     id: 2,

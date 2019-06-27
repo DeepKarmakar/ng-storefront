@@ -76,7 +76,7 @@
           <span *ngIf="cartItems[product.id]" style="font-size: 20px;">
             {{cartItems[product.id].qty}}
           </span>
-          <button mat-icon-button (click)="incrProductQty(product.id)">
+          <button mat-icon-button (click)="incrProductQty(product.id, product.stock)">
             <mat-icon>add_circle</mat-icon>
           </button>
         </div>
