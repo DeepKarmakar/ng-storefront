@@ -1,0 +1,62 @@
+<div *ngIf="!emptyCart; else emptyCartBlock">
+  <h2 class="mt-10">Cart detail</h2>
+  <hr>
+  <div class="example-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- item Column -->
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef> item. </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          {{element.name}}
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          <a href="#" mat-raised-button color="primary">CheckOut</a>
+        </td>
+      </ng-container>
+
+      <!-- price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        <td mat-footer-cell *matFooterCellDef> </td>
+      </ng-container>
+
+      <!-- quantity Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> quantity </th>
+        <td mat-cell *matCellDef="let element">
+          <input type="number" [(ngModel)]="element.qty">
+        </td>
+        <td mat-footer-cell *matFooterCellDef> </td>
+      </ng-container>
+
+      <!-- total Column -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> total </th>
+        <td mat-cell *matCellDef="let element" style="width: 140px;">{{element.qty}} x {{element.price}} &nbsp; = <span
+            style="width: 60px;text-align: right;float: right">{{element.price * element.qty}}</span> </td>
+        <td mat-footer-cell *matFooterCellDef> Total <span
+            style="width: 60px;text-align: right;float: right">{{getSubtotal()}}</span></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+    </table>
+
+  </div>
+
+</div>
+<ng-template #emptyCartBlock>
+  <div style="text-align: center; padding: 10px;">
+    <h1 style="margin: 25px">Your cart is empty</h1>
+    <a [routerLink]="['/']" mat-raised-button color="primary">back to shop</a>
+  </div>
+</ng-template>

@@ -47,12 +47,13 @@ export class HomeComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  addProduct(productId, productName, productPrice) {
+  addProduct(productId, productName, productPrice, productStock) {
 
     this.cartItems[productId] = {
       name: productName,
       qty: 1,
-      price: productPrice
+      price: productPrice,
+      stock: productStock
     };
     console.log(this.cartItems);
     this._cartService.updateCart(this.cartItems);

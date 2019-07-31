@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { MeterialModule } from '../../meterial.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
-  declarations: [FrontendComponent],
+  declarations: [FrontendComponent, CartComponent],
   imports: [
     CommonModule,
     RouterModule,

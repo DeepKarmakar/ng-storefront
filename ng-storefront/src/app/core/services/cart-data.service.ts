@@ -13,4 +13,12 @@ export class CartDataService {
   updateCart(data: any) {
     this.cartSource.next(data);
   }
+
+  getCart() {
+    let arr;
+    let data = this.cartMessage.subscribe(res => {
+      arr = res
+    });
+    return arr;
+  }
 }

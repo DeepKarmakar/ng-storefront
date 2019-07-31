@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>My First App</span>
+    <span [routerLink]="['/']">My First App</span>
     <span class="example-fill-remaining-space"></span>
     <span class="align-center"></span>
     <span class="example-spacer"></span>
@@ -36,7 +36,7 @@
             <span>{{getSubtotal()}}</span>
           </div>
         </mat-list-item>
-        <button mat-raised-button color="primary" class="proceed-btn" (click)="proceedTocheckout()">Proceed</button>
+        <button mat-raised-button color="primary" class="proceed-btn" [routerLink]="['/cart']">Proceed</button>
       </mat-list>
       <p *ngIf="cartProducts.length == 0" style="padding: 15px">Your cart is empty</p>
     </mat-menu>
